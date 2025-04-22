@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     port: 5174,
     allowedHosts: [
-      "h76y3y-5174.csb.app", // Votre host CodeSandbox
+      "2qsx7k-5174.csb.app", // Votre host CodeSandbox
       "localhost", // Pour le développement local
     ],
   },
