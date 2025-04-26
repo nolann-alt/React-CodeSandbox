@@ -5,9 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5174,
+    port: 5175,
     allowedHosts: [
-      "2qsx7k-5174.csb.app", // Votre host CodeSandbox
+      "2qsx7k-5175.csb.app", // Votre host CodeSandbox
       "localhost", // Pour le développement local
     ],
   },

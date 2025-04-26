@@ -8,12 +8,33 @@ function App() {
     { id: 2, nom: "Banane" },
     { id: 3, nom: "Cerise" },
   ]);
-  const voiture = <li>Tesla</li>;
-  const voitures = [<li>Audi</li>, <li>BMW</li>, <li>Clio</li>];
+
+  const [nouveauFruit, setNouveauFruit] = useState("");
+
+  // const inputRef = useRef();
 
   // comportements
   const remove = (id) => {
     console.log(id);
+    // 1. copie du state
+    /*const fruitsCopy = fruits.slice(); // slice = copie.*/
+    const fruitsCopy = [...fruits]; // éclate le tableau fruit avec ... et son contenu est ajouté dans un nouveau tableau
+
+    // 2. Manipuler ma copie du state
+    const fruitsCopyUpdated = fruitsCopy.filter((fruit) => fruit.id !== id); // filtre les fruits qui n'on pas été cliqués
+
+    // 3. modifier mon state avec le setter
+    setFruits(fruitsCopyUpdated);
+  };
+
+  const handleSumbmit = (event) => {
+    event.preventDefault();
+    //alert("handleSumbmit");
+    //console.log(inputRef.current.value);
+  };
+
+  const handleChange = (event) => {
+    setNouveauFruit(event.target.value);
   };
 
   // affichage (render)
@@ -24,13 +45,29 @@ function App() {
         {fruits.map((fruit) => {
           return (
             <li key={fruit.id}>
-              {fruit.nom} <button onClick={remove}>X</button>
+              {fruit.nom} <button onClick={() => remove(fruit.id)}>X</button>
             </li>
           );
         })}
       </ul>
+      <form action="submit" onSubmit={handleSumbmit}>
+        <input
+          value={nouveauFruit}
+          type="text"
+          placeholder="Ajouter un fruit ..."
+          onChange={handleChange}
+        />
+        <button>Ajouter +</button>
+      </form>
     </div>
   );
 }
 
 export default App;
+
+// Gestion du fomulaire
+// 1. création du fomulaire
+// 2. soumission du fomulaire
+// 3. collecte des données du formulaire
+// 3a. méthode 1: documentGetElementById "React"
+// 3b. méthode 2: sync descendante / ascendante
