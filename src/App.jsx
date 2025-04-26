@@ -3,22 +3,32 @@ import "./styles.css";
 
 function App() {
   // state (étéat, données)
-  const [compteur, setCompteur] = useState(1);
+  const [fruits, setFruits] = useState([
+    { id: 1, nom: "Abricot" },
+    { id: 2, nom: "Banane" },
+    { id: 3, nom: "Cerise" },
+  ]);
+  const voiture = <li>Tesla</li>;
+  const voitures = [<li>Audi</li>, <li>BMW</li>, <li>Clio</li>];
 
   // comportements
-  const handleClick = () => {
-    // alert("handleClick");
-
-    console.log("compteur : ", compteur);
-    setCompteur(compteur + 1);
-    console.log("compteur : ", compteur);
+  const remove = (id) => {
+    console.log(id);
   };
 
   // affichage (render)
   return (
     <div>
-      <h1>{compteur}</h1>
-      <button onClick={handleClick}>Incrémente</button>
+      <h1>Liste de fruits</h1>
+      <ul>
+        {fruits.map((fruit) => {
+          return (
+            <li key={fruit.id}>
+              {fruit.nom} <button onClick={remove}>X</button>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
