@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import Fruit from "./components/Fruit";
 
 function App() {
   // state (étéat, données)
@@ -36,7 +37,8 @@ function App() {
     // 2. manipulation de la copie
     const id = new Date().getTime();
     const nom = nouveauFruit;
-    fruitsCopy.push({ id, nom });
+    const fruitAjouter = { id, nom };
+    fruitsCopy.push(fruitAjouter);
 
     // 3. modifier le state avec le setter
     setFruits(fruitsCopy);
@@ -53,11 +55,12 @@ function App() {
       <h1>Liste de fruits</h1>
       <ul>
         {fruits.map((fruit) => {
-          return (
-            <li key={fruit.id}>
-              {fruit.nom} <button onClick={() => remove(fruit.id)}>X</button>
-            </li>
-          );
+          // return (
+          //   <li key={fruit.id}>
+          //     {fruit.nom} <button onClick={() => remove(fruit.id)}>X</button>
+          //   </li>
+          // );
+          <Fruit />;
         })}
       </ul>
       <form action="submit" onSubmit={handleSumbmit}>
