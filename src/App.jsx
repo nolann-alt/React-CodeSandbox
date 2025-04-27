@@ -30,7 +30,7 @@ function App() {
 
   const handleSumbmit = (event) => {
     event.preventDefault();
-    $;
+
     // 1. copie du state
     const fruitsCopy = [...fruits];
 
@@ -60,8 +60,8 @@ function App() {
           //     {fruit.nom} <button onClick={() => remove(fruit.id)}>X</button>
           //   </li>
           // );
-          <Fruit />;
         })}
+        <Fruit />
       </ul>
       <form action="submit" onSubmit={handleSumbmit}>
         <input
