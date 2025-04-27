@@ -29,8 +29,18 @@ function App() {
 
   const handleSumbmit = (event) => {
     event.preventDefault();
-    //alert("handleSumbmit");
-    //console.log(inputRef.current.value);
+    $;
+    // 1. copie du state
+    const fruitsCopy = [...fruits];
+
+    // 2. manipulation de la copie
+    const id = new Date().getTime();
+    const nom = nouveauFruit;
+    fruitsCopy.push({ id, nom });
+
+    // 3. modifier le state avec le setter
+    setFruits(fruitsCopy);
+    setNouveauFruit("");
   };
 
   const handleChange = (event) => {
