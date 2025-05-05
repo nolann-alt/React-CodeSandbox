@@ -54,14 +54,9 @@ function App() {
     <div>
       <h1>Liste de fruits</h1>
       <ul>
-        {fruits.map((fruit) => {
-          // return (
-          //   <li key={fruit.id}>
-          //     {fruit.nom} <button onClick={() => remove(fruit.id)}>X</button>
-          //   </li>
-          // );
-        })}
-        <Fruit />
+        {fruits.map((fruit) => (
+          <Fruit fruitInfo={fruit} onFruitDelete={remove} />
+        ))}
       </ul>
       <form action="submit" onSubmit={handleSumbmit}>
         <input
