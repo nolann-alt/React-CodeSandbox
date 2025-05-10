@@ -1,13 +1,15 @@
 export default function Fruit(props) {
   // state
+  const fruitInfo = props.fruitInfo;
+  const remove = props.onFruitDelete;
 
   // comportements
 
   // affichage (render)
   return (
-    <li key={props.fruitInfo.id}>
-      {props.fruitInfo.nom}
-      <button onClick={() => props.onFruitDelete(props.fruitInfo.id)}>X</button>
+    <li key={fruitInfo.id}>
+      {fruitInfo.nom}
+      <button onClick={() => remove(fruitInfo.id)}>X</button>
     </li>
   );
 }
